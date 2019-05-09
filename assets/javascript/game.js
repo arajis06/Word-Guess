@@ -1,17 +1,22 @@
 // Array of Words to Randomly pick.
 var wordBank = ["khole", "kylie", "kimberly", "kim", "kourtney", "kendell", "kris"];
-// How to generate a word.
+// Solution will be held here.
 var pickedWord = "";
 // This will break the solution into individual letters to be in  stored in array.
-var lettersInPickedWord
-var blankspace = [];       // current word
-var wrongGuess = [];        //wrong letter guessed 
-var guessesLeft = 10;  //how many chances left to play
-var rightGuess = 0;         //right letter guessed
-var wins = 0;           //number of wins
-var guessedLetter = [];     //letters already played
-var randomWord
-var userGuesses
+var numLettersInPickedWord = [];
+// This will be the number of blanks we show based on the solution.
+var numofblanks = 0;
+// Holds a mix of blank and solved lettersall of blank (ex. a,_,_,l,e).
+var blanksAndSuccesses =[];
+// Holds all of the wrong guesses
+var wrongGuess = []; 
+
+// GAME COUNTERs
+var winCounter = 0;  
+var lossCounter = 0;         
+var remainingGuesses = 10; 
+
+// FUNCTIONS
 
 // Select a random word 
 function playGame() {
