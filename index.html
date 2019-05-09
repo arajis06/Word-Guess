@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Word Guess Game</title>
 
-    <script> src = "assets/javascript/game.js"</script>
+    <script src = "assets/javascript/game.js"></script>
   </head>
 
   <body>
@@ -15,27 +15,22 @@
         <h3>How to Play:</h3>
           <p> <strong>Guess</strong> the <em>first-name</em> of any family member with last name Kardashian  </p>
 
-            <h4>Press any letter to <strong>begin!</strong></h4>
+            <h4>Press any letter to <strong>PLAY!</strong></h4>
     </div><!----wrapper end------>
 
                   <!--------Game Setup-------->
-                <div class ="Game-Container"></div>
+              <div class ="Game-Container"></div>
 
-                  <div class ="Win-Section">
-                    <h3>Wins: <span id = "win-count">0</span></h3>
-                  </div> 
 
-                  <div class ="Losses-Section">
-                    <h3>Losses <span id ="loss-count">0</span></h3>
-                  </div>
-
-                  <br>
-                  
                   <div class ="Word-Guess-Section">
                     <h3>Current Word to Guess</h3>
                     <br>
                       <!--Underscores-->
-                      <div id = "empty-letter-underscores"></div>
+                      <div id = "empty-letter-blanks"></div>
+                  </div>
+
+                  <div class = "Wrong-Guesses">
+                    <div id = "wrong-guesses"></div>
                   </div>
 
                       <!---User-Remaining-Attempts-->
@@ -47,6 +42,15 @@
                   <div class ="Guessed-Letters-Display">
                     <div id ="guessed-letters"></div>
                   </div>
-                </div><!---Container end!-->
+
+                  <div class ="Win-Section">
+                      <h3>Wins: <span id = "win-count">0</span></h3>
+                    </div> 
+  
+                    <div class ="Losses-Section">
+                      <h3>Losses <span id ="loss-count">0</span></h3>
+                    </div>
+  
+              </div><!---Container end!-->
   </body>
 </html>
