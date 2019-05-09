@@ -2,28 +2,51 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Object-oriented JavaScript example</title>
+    <title>Word Guess Game</title>
+
+    <script> src = "assets/javascript/game.js"</script>
   </head>
 
   <body>
-    <h1>Word Guess: Special Edition</h1>
-        <h2>Name that Kharadashian!</h2>
 
+    <div class ="wrapper">
+      <h1>Guess a Kardashian: Special Edition</h1>
+        <!---------Game Directions-->
         <h3>How to Play:</h3>
-            <p> Try to <strong>guess</strong>the <em>first name</em> of any member of the whole Kharadashian family below. </p>
+          <p> <strong>Guess</strong> the <em>first-name</em> of any family member with last name Kardashian  </p>
 
-            
+            <h4>Press any letter to <strong>begin!</strong></h4>
+    </div><!----wrapper end------>
+
+                  <!--------Game Setup-------->
+                <div class ="Game-Container"></div>
+
+                  <div class ="Win-Section">
+                    <h3>Wins: <span id = "win-count">0</span></h3>
+                  </div> 
+
+                  <div class ="Losses-Section">
+                    <h3>Losses <span id ="loss-count">0</span></h3>
+                  </div>
+
+                  <br>
+                  
+                  <div class ="Word-Guess-Section">
+                    <h3>Current Word to Guess</h3>
+                    <br>
+                      <!--Underscores-->
+                      <div id = "letter-blanks"></div>
+                  </div>
+
+                      <!---User-Remaining-Attempts-->
+                  <div class ="Remaining-Guesses">
+                    <h3>Remaining Guesses: <span id ="remaining-attemps">10</span></h3>
+                  </div>
+
+                  <!---Letters User Already Guessed-->
+                  <div class ="Guessed-Letters-Display">
+                    <div id ="guessed-letters"></div>
+                  </div>
+                </div><!---Container end!-->
   </body>
-
-    <script>
-
-    var CurrentWord = "";
-    var wordGuess = [];
-    var wrongGuess = [];
-    var guessBomb = 0;
-    var winCount = 1;
-    var guess = "";
-    var guestedletters = 0;
-
-    </script>
 </html>
