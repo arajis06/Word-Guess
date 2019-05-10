@@ -10,6 +10,7 @@ var remainingGuesses = 10;
 var underScores = [];
 var userGuesses = [];
 var lettersInRandomWord = [];
+var blanksAndLetters = [];
 
 
 // FUNCTION
@@ -26,30 +27,25 @@ function startGame() {
    // test
     console.log(randomWord);
 
-    for (var i = 0; i < randomWord.length; i++) {
-        // Prints underscores on webpage
-        underScores.push("_");
-    }
-        document.getElementById("empty-blanks").textContent = underScores.join(" ");
-        // test
-        console.log(underScores);
-
     // Reset
     wrongLetter = [];
     remainingGuesses = 10;
 
-    // HTML
-    document.getElementById("remaining-guesses").textContent = remainingGuesses;
-
-}
-function winLose() {
-    if(winCounter === randomWord.length) {
-        alert("WINNER !");
-       }
-       else if(remainingGuesses === 0) {
-           alert("LOSER !");
-       }
+    for (var i = 0; i < underScores.length; i++) {
+        // Prints underscores on webpage
+        blanksAndLetters.push("_");
     }
+        // test
+        console.log(blanksAndLetters);
+        // Prints blanks at the beginning of each round.
+        document.getElementById("empty-blanks").textContent = blanksAndLetters.join(" ");
+        // test
+        console.log(randomWord);
+
+
+        // HTML
+        document.getElementById("remaining-guesses").textContent = remainingGuesses.join(" ");
+
 }
 // User Guesses
 document.onkeyup = function(event) {
@@ -74,11 +70,52 @@ document.onkeyup = function(event) {
                remainingGuesses--;
                // test
                console.log(wrongLetter);
+               winLose(); 
+
+    }
+}
+
+function winLose() {
+    if(winCounter === randomWord.length) {
+        alert("WINNER !");
+        startGame();
+       }
+       else if(remainingGuesses === 0) {
+           alert("LOSER !");
+           startGame();    
+       }
+    }
+
+/* User Guesses
+document.onkeyup = function(event) {
+
+    userGuesses = event.key.toLowerCase;
+    //Checking if the letter exist inside the word.
+    if(randomWord.indexOf(userGuesses) > -1) {
+
+        for(var i = 0; i < randomWord.length; i++) {
+            
+            if(randomWord[i] === userGuesses) {
+               underScores[i] = userGuesses;
+               // Test
+               console.log(underScores);
+               winCounter++;
+               winLose();
+            }
+        }
+    }
+            else {
+               wrongLetter.push(userGuesses);
+               remainingGuesses--;
+               // test
+               console.log(wrongLetter);
+               winLose(); 
+
     }
 }
 
 // Main Game
-startGame();
+startGame();*/
 
 
 

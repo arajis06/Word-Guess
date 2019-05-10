@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Word Guess Game</title>
 
-    <script src = "assets/javascript/game2.js"></script>
+    <script src = "assets/javascript/game.js"></script>
   </head>
 
   <body>
@@ -21,19 +21,12 @@
                   <!--------Game Setup-------->
               <div class ="Game-Container"></div>
 
-                  <div class ="Win-Section">
-                    <h3>Wins: <span id = "win-count">0</span></h3>
-                  </div> 
-  
-                  <div class ="Losses-Section">
-                    <h3>Losses <span id ="loss-count">0</span></h3>
-                  </div>
                       
                   <div class ="Word-Section">
                     <h3>Current Word to Guess</h3>
                     <br>
                       <!--Underscores-->
-                      <div id = "empty-blanks">----------</div>
+                      <div id ="blanks"></div>
                   </div>
 
                       <!---User-Remaining-Attempts-->
