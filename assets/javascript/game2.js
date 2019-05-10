@@ -9,6 +9,8 @@ var wrongLetter = [];
 var remainingGuesses = 10;
 var underScores = [];
 var userGuesses = [];
+var lettersInRandomWord = [];
+
 
 // FUNCTION
 function startGame() {
@@ -16,11 +18,21 @@ function startGame() {
     randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
     console.log(randomWord);
 
+    // The word is broken into individual letters.
+    lettersInRandomWord = randomWord.split(" ");
+
+   // Counting the numbers of letteres in the word.
+    underScores = lettersInRandomWord.length;
+   // test
+    console.log(randomWord);
+
     for (var i = 0; i < randomWord.length; i++) {
         // Prints underscores on webpage
         underScores.push("_");
     }
-    document.getElementById("empty-blanks").textContent = underScores.join(" ");
+        document.getElementById("empty-blanks").textContent = underScores.join(" ");
+        // test
+        console.log(underScores);
 
     // Reset
     wrongLetter = [];
@@ -30,35 +42,44 @@ function startGame() {
     document.getElementById("remaining-guesses").textContent = remainingGuesses;
 
 }
-
+function winLose() {
+    if(winCounter === randomWord.length) {
+        alert("WINNER !");
+       }
+       else if(remainingGuesses === 0) {
+           alert("LOSER !");
+       }
+    }
+}
+// User Guesses
 document.onkeyup = function(event) {
 
     userGuesses = event.key.toLowerCase;
-    // testing
-    console.log(userGuesses);
-
-    //Checking if the letter exist inside the array.
+    //Checking if the letter exist inside the word.
     if(randomWord.indexOf(userGuesses) > -1) {
 
+        for(var i = 0; i < randomWord.length; i++) {
+            
+            if(randomWord[i] === userGuesses) {
+               underScores[i] = userGuesses;
+               // Test
+               console.log(underScores);
+               winCounter++;
+               winLose();
+            }
+        }
     }
-    else {
-        wrongLetter.push(userGuesses);
-        remainingGuesses--;
-        // testing
-        console.log(wrongLetter);
+            else {
+               wrongLetter.push(userGuesses);
+               remainingGuesses--;
+               // test
+               console.log(wrongLetter);
     }
 }
 
 // Main Game
 startGame();
 
-
-        if (randomWord[i] === letter) {
-            // If the letter exist then this event will be true.
-            letterInWord = true;
-        }
-    }
-}
 
 
 

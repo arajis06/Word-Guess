@@ -4,7 +4,7 @@ var wordBank = ["khole", "kylie", "kimberly", "kim", "kourtney",
 // Solution will be held here.
 var randomWord = "";
 // This will break the solution into individual letters to be in  stored in array.
-var numLettersInRandomWord = [];
+var lettersInRandomWord = [];
 // This will be the number of blanks we show based on the solution.
 var numofblanks = 0;
 // Holds a mix of blank and solved lettersall of blank (ex. a,_,_,l,e).
@@ -26,10 +26,10 @@ function startGame() {
     randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
 
 // The word is broken into individual letters.
-    numLettersInRandomWord = randomWord.split("");
+    lettersInRandomWord = randomWord.split("");
 
 // Counting the numbers of letteres in the word.
-    numofblanks = numLettersInRandomWord.length;
+    numofblanks = lettersInRandomWord.length;
 
 // Prints the solution on webpage to test.
     console.log(randomWord);
