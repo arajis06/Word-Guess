@@ -10,7 +10,7 @@ var numofblanks = 0;
 // Holds a mix of blank and solved lettersall of blank (ex. a,_,_,l,e).
 var blanksAndSuccesses =[];
 // Holds all of the wrong guesses
-var wrongGuesses = []; 
+var letterGuessed = []; 
 
 // GAME COUNTER to keep track of scores============================
 var winCounter = 0;  
@@ -19,7 +19,7 @@ var remainingGuesses = 10;
 
 // FUNCTIONS to run when needed!====================================
 // Starting a new game function....
-function playGame() {
+function startGame() {
 // Resets the  guesses back to 0.
     remainingGuesses = 10;
 // Selecting a random word from word bank
@@ -45,6 +45,8 @@ function playGame() {
     }
     // Print the initial underscore blanks .
         console.log(blanksAndSuccesses);
+
+
 
 // Reprints to webpage the remainingGuesses to 10.
     document.getElementById("remaining-attempts")
@@ -73,7 +75,7 @@ function checkLetters(letter) {
     if (letterInWord) {
 
         // Loop through the random word chosen.
-        for (var k = 0; j < numofblanks; k++) {
+        for (var k = 0; k < numofblanks; k++) {
             if (randomWord[k] === letter) {
                 // Setting proper space in blanks and letter equal to the letter when there is a match.
                 blanksAndSuccesses[k] = letter;
@@ -98,15 +100,15 @@ function playFinished() {
 
 // Update index.html to reflect the new numbers of guesses. And update right guesses.
 document.getElementById("remaining-attempts")
-.innerHTML = remainingGuesses;
+.textContent = remainingGuesses;
 
 // This will print the array of guesses and blanks onto the webpage.
 document.getElementById("empty-letter-blanks")
-.innerHTML = blanksAndSuccesses.join(" ");
+.textContent = blanksAndSuccesses.join(" ");
 
 // This will print the wrong guesses onto webpage.
 document.getElementById("wrong-guesses")
-.innerHTML = wrongGuesses.join(" ");
+.textContent = wrongGuesses.join(" ");
 
 // If all the letters match the solution....
 if (numLettersInRandomWord.toString() === blanksAndSuccesses.toString()) {
@@ -116,7 +118,7 @@ if (numLettersInRandomWord.toString() === blanksAndSuccesses.toString()) {
 
     // Now Update win counter in the index.html and restart game.
     document.getElementById("win-count")
-    .innerHTML = winCounter;
+    .textContent = winCounter;
 
     playGame();
     }
@@ -141,7 +143,7 @@ if (numLettersInRandomWord.toString() === blanksAndSuccesses.toString()) {
 // Code to control what is run
 // Starting the game by run function...
 playGame();
-// starts on key push event
+/* starts on key push event
 document.onkeyup = function(event) {
     // Change all letters to lowercase letters
     var letterGuessed = String.fromCharCode(event.which).toLowerCase();
@@ -150,9 +152,16 @@ document.onkeyup = function(event) {
     // Run the code after each play is done.
     playFinished();
 
-};
+};*/
+document.onkeyup = function(event) {
+    var key = event.key.toLowerCase()
+  //   If the user picks a letter
+      if(wordBank.includes(key)) {
+       letterGuessed = wordBank[Math.floor(Math.random() * 9)]
+  // show user pick on page
+      document.getElementById("guessed-letters").innerHTML = key
+ 
+      };
 
 
-
-
-
+}
