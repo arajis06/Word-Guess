@@ -1,5 +1,61 @@
+@import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
+
+
+
+
 body {
   font-family:'Courgette', cursive;
   background-color: black;
   color: white;
+}
+.current-word {
+  color: #ff1ead;
+  font-weight: bold;
+ }
+ #blanks {
+   color: #ff1ead;
+   line-height: 3px;
+ }
+ #guessed-letters {
+   color: #ff1ead;
+ }
+
+ #win-count {
+   color: #ff1ead;
+ }
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 10px #ff1ead,
+      0 0 20px #ff1ead, 0 0 30px #ff1ead, 0 0 40px #ff1ead, 0 0 50px #ff1ead;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 25px #ff1ead,
+      0 0 35px #ff1ead, 0 0 45px #ff1ead, 0 0 55px #ff1ead, 0 0 65px #ff1ead;
+  }
+}
+@keyframes flicker {
+  0%,
+  15%,
+  17%,
+  20%,
+  22%,
+  74%,
+  76%,
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 25px #ff1ead,
+      0 0 35px #ff1ead, 0 0 45px #ff1ead, 0 0 55px #ff1ead, 0 0 65px #ff1ead;
+  }
+  16%,
+  21%,
+  75% {
+    text-shadow: none;
+  }
+}
+h1 {
+  color: #fff;
+  animation: glow 1.2s ease-in-out infinite alternate;
+}
+.flicker {
+  animation: flicker 2s ease infinite alternate;
 }
