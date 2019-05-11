@@ -81,8 +81,7 @@ function checkLetters(letter) {
                 blanksAndLetters[k] = letter;
             }
         }
-        // Print to test.
-        console.log(blanksAndLetters);
+     
     }
     // If the letter doesn't exist...
     else {
@@ -131,7 +130,7 @@ if (lettersInRandomWord.toString() === blanksAndLetters.toString()) {
         document.getElementById("loss-count")
         .textContent = lossCounter;
 
-    // Restart game again.
+    // Restart game.
     startGame();
     }
 
