@@ -11,14 +11,12 @@ var numBlanks = 0;
 var blanksAndLetters = [];
 // Holds all of the wrong guesses
 var letterGuessed = []; 
-
-// GAME COUNTER ============================
 var winCounter = 0;  
 var lossCounter = 0;         
 var remainingGuesses = 10; 
 
 // FUNCTIONS to run when needed!====================================
-// Starting and restarting the game.
+// Starting the game.
 function startGame() {
 // Resets the  guesses back to 0.
     remainingGuesses = 10;
@@ -95,8 +93,7 @@ function checkLetters(letter) {
     }
 }
 // FUNCTION===============================================
-// playFinished() function...
-// Code to be ran after each guess is made.
+
 function roundComplete() {
     //Print how many wins, losses, and guesses left.
     console.log("Wins: " + winCounter + " | Losses: " + lossCounter + " | RemainingGuesses: " + remainingGuesses);
